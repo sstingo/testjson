@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/services/post.dart';
+import 'package:test1/http/post2.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,11 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-     
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: PostsPage(),
+      home: PostsPage2(),
     );
   }
 }
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
 
 //     return Scaffold(
 //       appBar: AppBar(
-    
+
 //         title: Text(widget.title),
 //       ),
 //       body: Center(
@@ -64,7 +63,7 @@ class MyApp extends StatelessWidget {
 //         onPressed: _incrementCounter,
 //         tooltip: 'Increment',
 //         child: Icon(Icons.add),
-//       ), 
+//       ),
 //     );
 //   }
 // }

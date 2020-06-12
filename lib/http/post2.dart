@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:test1/services/http_service.dart';
-import 'package:test1/services/post_detail.dart';
-import 'package:test1/services/post_model.dart';
+import 'package:test1/http/http_service2.dart';
+import 'package:test1/http/post_detail2.dart';
+import 'package:test1/http/post_model2.dart';
 
-final HttpService httpService = HttpService();
+final HttpService2 httpService = HttpService2();
 
-class PostsPage extends StatelessWidget {
+class PostsPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Posts"),
+        title: Text("Post"),
       ),
       body: FutureBuilder(
-        future: httpService.getPosts(),
-        builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
+        future: httpService.getPosts2(),
+        builder: (BuildContext context, AsyncSnapshot<List<Post2>> snapshot) {
           if (snapshot.hasData) {
-            List<Post> posts = snapshot.data;
-
+            List<Post2> posts = snapshot.data;
             return ListView(
               children: posts
-                  .map((Post post) => ListTile(
-                        title: Text(post.title),
+                  .map((Post2 post) => ListTile(
+                        title: Text(post.name),
                         subtitle: Text(
                           post.id.toString(),
                         ),
                         onTap: () =>
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => PostDetail(
+                                builder: (context) => PostDetail2(
                                       post: post,
                                     ))),
                       ))
