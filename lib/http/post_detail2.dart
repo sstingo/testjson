@@ -3,18 +3,19 @@ import 'package:test1/http/http_service2.dart';
 import 'package:test1/http/post_model2.dart';
 
 class PostDetail2 extends StatelessWidget {
-  final Post2 post;
+  final Post2 post2;
   final HttpService2 httpService2 = HttpService2();
 
   PostDetail2({
-    @required this.post,
+    @required this.post2,
   });
 
   @override
   Widget build(BuildContext context) {
+    print(post2.logo); ////////////
     return Scaffold(
       appBar: AppBar(
-        title: Text(post.name),
+        title: Text(post2.name),
       ),
       // floatingActionButton: FloatingActionButton(
       //   child: Icon(Icons.delete),
@@ -30,24 +31,25 @@ class PostDetail2 extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ListTile(
-                  title: post.logo == null
-                      ? Image.asset(
-                          "assets/images/圖片顯示中.jpg",
-                          width: 100,
-                        )
-                      : Image.network(post.logo),
+                  title: post2.logo != null
+                      ? Image.network(post2.logo)
+                      : Text("沒圖"),
+                  // Image.asset(
+                  //     "assets/images/圖片顯示中.jpg",
+                  //     width: 100,
+                  //   )
                 ),
                 ListTile(
-                  title: Text(post.name),
-                  subtitle: Text(post.id),
+                  title: Text(post2.name),
+                  subtitle: Text(post2.id),
                 ),
                 ListTile(
                   title: Text("ID"),
-                  subtitle: Text(post.id),
+                  subtitle: Text(post2.id),
                 ),
                 ListTile(
                   title: Text("性質"),
-                  subtitle: Text(post.type),
+                  subtitle: Text(post2.type),
                 )
               ],
             ),
