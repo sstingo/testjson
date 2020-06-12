@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test1/http/http_service2.dart';
-import 'package:test1/http/post2.dart';
 import 'package:test1/http/post_model2.dart';
 
 class PostDetail2 extends StatelessWidget {
@@ -31,8 +30,16 @@ class PostDetail2 extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ListTile(
-                  title: Text("名稱"),
-                  subtitle: Text(post.name),
+                  title: post.logo == null
+                      ? Image.asset(
+                          "assets/images/圖片顯示中.jpg",
+                          width: 100,
+                        )
+                      : Image.network(post.logo),
+                ),
+                ListTile(
+                  title: Text(post.name),
+                  subtitle: Text(post.id),
                 ),
                 ListTile(
                   title: Text("ID"),
