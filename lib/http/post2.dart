@@ -20,10 +20,18 @@ class PostsPage2 extends StatelessWidget {
             return ListView(
               children: posts
                   .map((Post2 post2) => ListTile(
+                        leading: CircleAvatar(
+                          backgroundImage: post2.logo != null
+                              ? NetworkImage(post2.logo)
+                              : AssetImage(
+                                  "assets/images/圖片顯示中.jpg",
+                                ),
+                        ),
                         title: Text(post2.name),
                         subtitle: Text(
                           post2.id.toString(),
                         ),
+                        trailing: Icon(Icons.keyboard_arrow_right),
                         onTap: () =>
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => PostDetail2(

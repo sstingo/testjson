@@ -31,26 +31,49 @@ class PostDetail2 extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ListTile(
-                  title: post2.logo != null
-                      ? Image.network(post2.logo)
-                      : Text("沒圖"),
-                  // Image.asset(
-                  //     "assets/images/圖片顯示中.jpg",
-                  //     width: 100,
-                  //   )
-                ),
+                    title: post2.logo != null
+                        ? Image.network(post2.logo)
+                        : Image.asset(
+                            "assets/images/圖片顯示中.jpg",
+                            width: 100,
+                          )),
                 ListTile(
                   title: Text(post2.name),
                   subtitle: Text(post2.id),
                 ),
                 ListTile(
-                  title: Text("ID"),
-                  subtitle: Text(post2.id),
-                ),
-                ListTile(
                   title: Text("性質"),
                   subtitle: Text(post2.type),
-                )
+                ),
+                ListTile(
+                  title: Text("社辦地點"),
+                  subtitle:
+                      post2.office != null ? Text(post2.office) : Text("社辦地點"),
+                ),
+                ListTile(
+                  title: Text("屆數"),
+                  subtitle: post2.session != null
+                      ? Text("第${post2.session}屆")
+                      : Text("第?屆"),
+                ),
+                ListTile(
+                  title: Text("指導老師"),
+                  subtitle: post2.teacher != null
+                      ? Text(post2.teacher)
+                      : Text("指導老師"),
+                ),
+                ListTile(
+                  title: Text("社費"),
+                  subtitle: post2.teacher != null
+                      ? Text("${post2.fee}元/學期")
+                      : Text("社費"),
+                ),
+                ListTile(
+                  title: Text("簡介"),
+                  subtitle: post2.introduction != null
+                      ? Text(post2.introduction)
+                      : Text(""),
+                ),
               ],
             ),
           ),
