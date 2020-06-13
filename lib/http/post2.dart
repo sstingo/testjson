@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test1/http/http_service2.dart';
 import 'package:test1/http/post_detail2.dart';
 import 'package:test1/http/post_model2.dart';
+import 'package:test1/http/search_club.dart';
 
 final HttpService2 httpService = HttpService2();
 
@@ -10,7 +11,18 @@ class PostsPage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Post"),
+        title: Text("社團"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: SearchClub(),
+              );
+            },
+          ),
+        ],
       ),
       body: FutureBuilder(
         future: httpService.getPosts2(),
@@ -38,6 +50,8 @@ class PostsPage2 extends StatelessWidget {
                                       post2: post2,
                                     ))),
                       ))
+
+                  ///
                   .toList(),
             );
           }
@@ -45,6 +59,8 @@ class PostsPage2 extends StatelessWidget {
           return CircularProgressIndicator();
         },
       ),
+      // ],
+      // ),
     );
   }
 }
